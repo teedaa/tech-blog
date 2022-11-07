@@ -1,9 +1,11 @@
-const Sequelize = require('sequelize');
-const sequelize = require('../config/connection');
-const connection = require('../config/connection');
+const { Model, DataTypes } = require('sequelize');
+const Sequelize = require('../config/connection');
 
+class Post extends Model{};
+  
 
-const Post = sequelizeConnection.define('post', {
+Post.init(
+     {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,

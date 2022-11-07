@@ -1,9 +1,10 @@
-const Sequelize = require('sequelize');
-const sequelize = require('../config/connection');
-const connection = require('../config/connection');
+const { Model, DataTypes } = require('sequelize');
+const Sequelize = require('../config/connection');
 
+class Comment extends Model{};
 
-const Comment = sequelizeConnection.define('comment', {
+Comment.init(
+     {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
