@@ -39,9 +39,11 @@ User.init(
           newUserData.password = await bcrypt.hash(newUserData.password, 10);
           return newUserData;
         },
-        beforeUpdate: async (updatedUserData) => {
-          updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-          return updatedUserData;
+        beforeBulkCreate: async (newUserData) => {
+            for (var i = 0; i < newUserData.length; i++ ) {    
+                newUserData[i].password = await bcrypt.hash(newUserData[i].password, 10)
+            }
+            return newUserData;
         },
     },
     sequelize: sequelizeConnection,
@@ -52,8 +54,5 @@ User.init(
 }
 );
 
-User.beforeCreate(async user => {
-    user.password = await bcrypt.hash(user.password, 10);
-});
 
 module.exports = User;
