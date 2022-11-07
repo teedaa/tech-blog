@@ -30,7 +30,7 @@ const Post = sequelizeConnection.define('post', {
     sequelize: sequelizeConnection,
     timestamps: true,
     freezeTableName: true,
-    modelName: 'posts',
+    modelName: 'post',
     underscored: true
 });
 
