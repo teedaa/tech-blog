@@ -9,7 +9,7 @@ class User extends Model {
   }
   
 
-const User.init(
+User.init(
      {
     id: {
         type: Sequelize.INTEGER,
