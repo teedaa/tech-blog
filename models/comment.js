@@ -19,6 +19,10 @@ Comment.init(
         key: 'id'
     }
    },
+   content: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+    },
    user_id: {
     type: Sequelize.INTEGER,
     allowNull: false,
@@ -27,7 +31,8 @@ Comment.init(
         key: 'id'
     }
    }
-}, {
+}, 
+{
     sequelize: sequelizeConnection,
     timestamps: true,
     freezeTableName: true,
