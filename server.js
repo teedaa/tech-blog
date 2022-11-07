@@ -16,11 +16,11 @@ const PORT = process.env.PORT || 3001;
 // Set up sessions
 const sess = {
   secret: 'Super secret secret',
-  cookie: {}
+  cookie: {},
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelizeConnection
+    db: sequelize
   })
 };
 app.use(session(sess));

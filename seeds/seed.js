@@ -1,22 +1,19 @@
-const db = require ('../config/connection');
-const users= [
-    {
-        username: 'daffy',
-        password: 'daffyduck',
+const sequelize = require('../config/connection');
+const seedUsers = require('./userData');
+const seedComments = require('./commentData');
+const seedPosts = require('./postData');
 
-    },
-    {
-        username: 'kitty',
-        password: 'hellokitty'
-    },
-    {
-        username: 'farley',
-        password: 'chickenbacon'
-    }
-]
+const seedAll = async () => {
+  await sequelize.sync({ force: true });
 
-const posts = [
-    {
-        title: ''
-    }
-]
+  await seedUsers();
+
+  await seedComments();
+
+  await seedPosts();
+
+  process.exit(0);
+};
+
+seedAll();
+
