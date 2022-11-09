@@ -27,6 +27,8 @@ app.use(session(sess));
 
 const hbs = exphbs.create({ helpers });
 app.use(require('./controllers/homeRoutes'));
+app.use(require('./controllers/userRoutes'));
+app.use(require('./controllers/postRoutes'));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
